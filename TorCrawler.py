@@ -4,8 +4,8 @@ import csv
 import string
 
 proxiesDict = {
-                "http": "http://localhost:9050",
-                "https": "https://localhost:9050"
+                "http": "socks5://localhost:9050",
+                "https": "socks5://localhost:9050"
                 }
 
 
@@ -15,9 +15,9 @@ print(ipTest.text)
 print(' is your ip seen through TOR. \n')
 
 confirm = input('Is this correct? (y/n)')
-if confirm.toLower() == 'y':
+if confirm.lower() == 'y':
     print('Good')
-elif confirm.toLower() == 'n':
+elif confirm.lower() == 'n':
     print('Make sure the tor service is running.')
     raise SystemExit
 else:
