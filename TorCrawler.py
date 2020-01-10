@@ -29,7 +29,7 @@ with open('onions.csv', mode='w') as file:
     writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     while(True):
         randomStrings = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
-        peicesURL = {randomStrings, '.onion'}
+        peicesURL = {'.onion', randomStrings}
         completeURL = ''.join(peicesURL)
         print(completeURL)
         r = requests.get(completeURL,proxies=proxiesDict)
