@@ -24,8 +24,6 @@ else:
     print('Enter y or n next time.')
     raise SystemExit
 
-print('Testing relay with DuckDuckGo...')
-
 
 with open('onions.csv', mode='w') as file:
     writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
