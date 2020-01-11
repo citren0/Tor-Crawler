@@ -1,5 +1,6 @@
 from stem.process import launch_tor_with_config
 from stem.control import Controller
+import string
 
 from subprocess import Popen, PIPE
 import logging
@@ -17,7 +18,8 @@ def genTorPassHash(password):
     try:
         with torP.stdout:
             for line in iter(torP.stdout.readline, b''):
-                line = line.strip('\n')
+                print(line)
+                line = line.decode('UTF-8').replace('\n', '')
                 if "16:" not in line:
                     logging.debug(line)
                 else:

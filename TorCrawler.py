@@ -9,16 +9,21 @@ import socket
 import socks
 from stem import Signal
 from stem.control import Controller
-from GenTorHash import genTorPassHash
+
 
 if not os.geteuid() == 0:
     exit("\nOnly root can run this script\n")
+
+
+
+subprocess.run("cd && bash service tor restart", shell=True)
 
 with Controller.from_port(port=9050) as controller:
 
 
 
     def connectTor():
+        from GenTorHash import genTorPassHash
         socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", 9050, True)
         socket.socket = socks.socksocket
     #-------------------------------------------------------------------
@@ -53,7 +58,7 @@ with Controller.from_port(port=9050) as controller:
 
 
     #Connecting to tor for the first time.
-    subprocess.run("cd && bash service tor restart", shell=True)
+    
     time.sleep(2)
     renew_tor()
     connectTor()
