@@ -5,6 +5,7 @@ from threading import Lock
 import time
 import queue
 import re
+import os
 from stem import Signal
 from stem.control import Controller
 
@@ -131,7 +132,7 @@ class TSQueue:
 # signal TOR for a new connection 
 def renew_connection():
 	with Controller.from_port(port = 9051) as controller:
-		controller.authenticate(password="passwordtest")
+		controller.authenticate(password=os.environ["TOR_CONTROL_PASSWORD"])
 		controller.signal(Signal.NEWNYM)
 
 
