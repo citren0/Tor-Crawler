@@ -5,7 +5,7 @@ A simple Tor Crawler written in Python 3 packaged with a thread-safe counter and
 You will need a running tor proxy daemon on your system.\
 Export an environment variable with your tor control password set in the torrc file:
 ```
-export TOR_CONTROL_PASSWORD='password'
+$ export TOR_CONTROL_PASSWORD='password'
 ```
 
 ## Run
